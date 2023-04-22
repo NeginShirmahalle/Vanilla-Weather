@@ -14,8 +14,6 @@
   font-size: 30px;
   font-weight: 300px;
   position: static;
-  top: -100px;
-  left: 450px;
 }
 
 .weatherapp h1 {
@@ -44,11 +42,13 @@
   text-align: left;
   margin: 5px;
   padding: 0px;
+  position: relative;
+  top: -60px;
 }
 
 img {
   position: relative;
-  top: -20px;
+  top: -50px;
   left: 400px;
   width: 90px;
 }
