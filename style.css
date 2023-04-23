@@ -9,13 +9,6 @@
   border: 1px solid;
 }
 
-.row {
-  color: #918e8e;
-  font-size: 30px;
-  font-weight: 300px;
-  position: static;
-}
-
 .weatherapp h1 {
   color: #474749;
   font-size: 38px;
@@ -29,8 +22,20 @@
   font-size: 16px;
   font-weight: 500;
   list-style: none;
-  padding: 50px 0 10px 0;
+  padding: 18px 0 10px 0;
   margin: 5px;
+}
+#temp {
+  margin-top: 30px;
+  position: relative;
+  top: 50px;
+  color: #474749da;
+}
+.unit {
+  font-size: 18px;
+}
+#emoji {
+  width: 170px;
 }
 
 .detail {
@@ -38,17 +43,13 @@
   font-size: 16px;
   font-weight: 500;
   list-style: none;
-  display: flex;
-  text-align: left;
+  position: relative;
   margin: 5px;
   padding: 0px;
   position: relative;
-  top: -60px;
+  top: 39px;
+  left: 30px;
 }
-
-img {
-  position: relative;
-  top: -50px;
-  left: 400px;
-  width: 90px;
+strong {
+  font-size: 60px;
 }
