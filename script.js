@@ -1,6 +1,7 @@
 function showTemp(responce) {
+  celsius = responce.data.temperature.current;
   let temp = document.querySelector("#temp");
-  temp.innerHTML = Math.round(responce.data.temperature.current);
+  temp.innerHTML = Math.round(celsius);
   let city = document.querySelector("#city");
   city.innerHTML = responce.data.city;
   let Descriptionelement = document.querySelector("#Description");
@@ -48,6 +49,24 @@ function Handle(event) {
   let cityinput = document.querySelector("#city-input");
   Search(cityinput.value);
 }
+function showFarenhait(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+  let farenhaitTemp = (tempElement.innerHTML * 9) / 5 + 32;
 
+  tempElement.innerHTML = Math.round(farenhaitTemp);
+}
+function showCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = Math.round(celsius);
+}
+let celsius = null;
 let form = document.querySelector("#search");
 form.addEventListener("submit", Handle);
+
+let farenhait = document.querySelector("#farenhait");
+farenhait.addEventListener("click", showFarenhait);
+let celsiusLink = document.querySelector("#celsiusLink");
+celsiusLink.addEventListener("click", showCelsius);
+Search("Tehran");
