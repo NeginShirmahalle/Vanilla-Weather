@@ -50,6 +50,20 @@
   top: 39px;
   left: 30px;
 }
+.daily-forcast {
+  text-align: center;
+}
+.daily-forcast-date {
+  font-size: 18px;
+  color: #474749da;
+  opacity: 0.6;
+}
+.daily-forcast-temp {
+  font-size: 15px;
+}
+.daily-forcast-min {
+  opacity: 0.6;
+}
 strong {
   font-size: 60px;
 }
