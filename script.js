@@ -50,18 +50,7 @@ function Handle(event) {
   let cityinput = document.querySelector("#city-input");
   Search(cityinput.value);
 }
-function showFarenhait(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#temp");
-  let farenhaitTemp = (tempElement.innerHTML * 9) / 5 + 32;
 
-  tempElement.innerHTML = Math.round(farenhaitTemp);
-}
-function showCelsius(event) {
-  event.preventDefault();
-  let tempElement = document.querySelector("#temp");
-  tempElement.innerHTML = Math.round(celsius);
-}
 function formatDay(timesstamp) {
   let date = new Date(timesstamp * 1000);
   let day = date.getDay();
@@ -107,13 +96,8 @@ function getForcast(city) {
   let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apikey}&units=metric`;
   axios.get(apiURL).then(displayforcast);
 }
-let celsius = null;
+
 let form = document.querySelector("#search");
 form.addEventListener("submit", Handle);
-
-let farenhait = document.querySelector("#farenhait");
-farenhait.addEventListener("click", showFarenhait);
-let celsiusLink = document.querySelector("#celsiusLink");
-celsiusLink.addEventListener("click", showCelsius);
 
 Search("Tehran");

@@ -32,7 +32,9 @@
   color: #474749da;
 }
 .unit {
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #474749da;
 }
 #emoji {
   width: 170px;
