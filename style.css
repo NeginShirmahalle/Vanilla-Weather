@@ -56,13 +56,13 @@
 .daily-forcast-date {
   font-size: 18px;
   color: #474749da;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 .daily-forcast-temp {
   font-size: 15px;
 }
 .daily-forcast-min {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 strong {
   font-size: 60px;

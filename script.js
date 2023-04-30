@@ -42,6 +42,7 @@ function Search(city) {
   let apikey = "997a3947b24cffe7061o2tbf7136bb8f";
 
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}&unit=metric`;
+  getForcast(city);
   axios.get(apiURL).then(showTemp);
 }
 function Handle(event) {
@@ -61,6 +62,51 @@ function showCelsius(event) {
   let tempElement = document.querySelector("#temp");
   tempElement.innerHTML = Math.round(celsius);
 }
+function formatDay(timesstamp) {
+  let date = new Date(timesstamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayforcast(responce) {
+  let dailyforecast = responce.data.daily;
+  let forcat = document.querySelector("#forcast");
+  let forcasthtml = `<div class="row">`;
+
+  dailyforecast.forEach(function (forcastday, index) {
+    if (index < 6) {
+      forcasthtml =
+        forcasthtml +
+        `
+              <div class="col-2">
+                <div class="daily-forcast-date">${formatDay(
+                  forcastday.time
+                )}</div>
+                <img
+                  src="${forcastday.condition.icon_url}"
+                  alt="" width="42"
+                />
+                <div class="daily-forcast-temp">
+                  <span class="daily-forcast-max"> ${Math.round(
+                    forcastday.temperature.maximum
+                  )}°</span>
+                  <span class="daily-forcast-min"> ${Math.round(
+                    forcastday.temperature.minimum
+                  )}°</span>
+                </div>
+              
+            </div>`;
+    }
+  });
+
+  forcasthtml = forcasthtml + `</div>`;
+  forcast.innerHTML = forcasthtml;
+}
+function getForcast(city) {
+  let apikey = "997a3947b24cffe7061o2tbf7136bb8f";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apikey}&units=metric`;
+  axios.get(apiURL).then(displayforcast);
+}
 let celsius = null;
 let form = document.querySelector("#search");
 form.addEventListener("submit", Handle);
@@ -69,4 +115,5 @@ let farenhait = document.querySelector("#farenhait");
 farenhait.addEventListener("click", showFarenhait);
 let celsiusLink = document.querySelector("#celsiusLink");
 celsiusLink.addEventListener("click", showCelsius);
+
 Search("Tehran");
